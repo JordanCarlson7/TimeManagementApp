@@ -1,0 +1,62 @@
+
+
+body {
+    background-color: darkred;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#activities {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    width: 90%;
+}
+#activitiesList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    padding-inline-start: 0px;
+}
+li {
+    display: flex;
+    list-style-type: none;
+    border: solid 2px black;
+    padding: 10px;
+    margin: 10px;
+    align-content: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: auto;
+    font-size: xxx-large;
+    
+}
+#newActivity {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: darksalmon;
+    border-radius: 10px;
+    height: max-content;
+    font-size: xx-large;
+    padding: 10px;
+}
+
+input {
+    background-color: darksalmon;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    font-size: xx-large;
+}
+button {
+    border-radius: 10px;
+    margin: 10px;
+    width: 90%;
+    font-size: xx-large;
+}
+#timer {
+    display: block;
+    font-size: xx-large;
+}
