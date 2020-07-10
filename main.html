@@ -7,7 +7,6 @@
     <body>
         <div id="activities">
             <ul id="activitiesList">
-
             </ul>
             <div id="newActivity">
                 <form id="addedActivity">
@@ -15,17 +14,30 @@
                 <input type="text" name="name" placeholder="What do you like to do?">
                 <br>
                 <label for="category">Category</label>
-                <input type="text" name="category" placeholder="Excersize, Work, Fun, etc.">
+                <select id="category" name="category" placeholder="Excersize, Work, Fun, etc.">
+                    <option name="Work" value="work">Work</option>
+                    <option name="Excersize" value="excersize">Excersize</option>
+                    <option name="Entertainment" value="entertainment">Entertainment</option>
+                    <option name="Service" value="service">Service</option>
+                    <option name="Personal" value="personal">Personal</option>
+                    <option name="Travel" value="travel">Travel</option>
+                    </select>
                 <br>
                 <button type="button" id="buttonAddActivity">Add</button>
+                <button type="button" id="saveDay">Save Day</button>
             </form>
             </div>
         </div>
+        
         <div id="timer">
-            
         </div>
-        <div id="pie">
 
+        <div id="pie">
+            <div id="pieTarget" class="stats"></div>
+            <div id="pieActual" class="stats">
+                
+            </div>
         </div>
+
     </body>
 </html>

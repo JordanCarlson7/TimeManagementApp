@@ -1,11 +1,17 @@
 import TimeController from './controller.js';
-var controller = new TimeController();
-export default function addTimingToButton(timeVar, timer) {
-    var activityButtons = Array.from(document.getElementsByClassName('activityButton'));
-    activityButtons.forEach(element => {
-        element.addEventListener('click', toggleTime, false);
-    });
 
+
+export default function addTimingToButton(timeVar, timer, singleButton = null) {
+    const controller = new TimeController();
+    if (!singleButton) {
+        var activityButtons = Array.from(document.getElementsByClassName('activityButton'));
+        activityButtons.forEach(element => {
+            element.addEventListener('click', toggleTime, false);
+        });
+    }
+    if (singleButton) {
+        singleButton.addEventListener('click', toggleTime, true);
+    }
 
     function startTimer() {
         timeVar = setInterval(run, 1000);

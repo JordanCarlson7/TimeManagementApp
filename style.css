@@ -3,6 +3,7 @@
 body {
     background-color: darkred;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
 }
@@ -42,6 +43,27 @@ li {
     font-size: xx-large;
     padding: 10px;
 }
+#pie {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    height:auto;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-content: space-between;
+    
+}
+.activityData {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    padding: 10px;
+    text-align: right;
+}
 
 input {
     background-color: darksalmon;
@@ -60,3 +82,10 @@ button {
     display: block;
     font-size: xx-large;
 }
+
+.work{background-color: grey;}
+.excersize{background-color: red;}
+.entertainment{background-color: yellow;}
+.service{background-color: sandybrown;}
+.personal{background-color: green;}
+.travel{background-color: ivory;}
