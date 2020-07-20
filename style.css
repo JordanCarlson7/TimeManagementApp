@@ -148,14 +148,14 @@ button:hover {
     background-color:#00000033;
 }
 footer {
+    margin: 0px;
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
-    color: var(--background);
-    background-color: var(--secondary);
+    color: var(--secondary);
     padding: 20px;
-    font-size: x-small;
+    font-size: small;
 }
 #timer {
     display: block;
