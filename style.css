@@ -47,9 +47,20 @@ li {
     font-size: xxx-large;
     
 }
+#addedActivity {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-around;
+}
+
+#addedActivity > button {
+    margin-left: 4.5%;
+}
 #newActivity {
     display: flex;
     flex-direction: column;
+    align-content: center;
     justify-content: space-between;
     background-color: var(--accent);
     border-radius: 10px;
@@ -108,10 +119,11 @@ input {
     float: left;
 }
 select {
-    width: 100px;
-    height: 40px;
+    width: 100%;
+    height: max-content;
     background-color: #00000000;
     border-style: none;
+    border-bottom: solid 2px var(--accent-inner);
     color:var(--background);
     font-size: smaller;
     margin: 2px;
@@ -132,6 +144,9 @@ button {
 .activityButton:hover {
     background-color:#00000033;
 }
+button:hover {
+    background-color:#00000033;
+}
 
 #timer {
     display: block;
@@ -144,6 +159,7 @@ button {
     border-radius: 10px;
     margin: auto;
     margin-top: 10px;
+    margin-bottom: 10px;
     
 }
 .work{background-color:var(--silver);}
