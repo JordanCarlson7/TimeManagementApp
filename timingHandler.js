@@ -1,8 +1,8 @@
 import TimeController from './controller.js';
 
 
-export default function addTimingToButton(timeVar, timer, singleButton = null) {
-    const controller = new TimeController();
+export default function addTimingToButton(timeVar, timer, controller, singleButton = null) {
+    
     if (!singleButton) {
         var activityButtons = Array.from(document.getElementsByClassName('activityButton'));
         activityButtons.forEach(element => {
@@ -17,20 +17,19 @@ export default function addTimingToButton(timeVar, timer, singleButton = null) {
         timeVar = setInterval(run, 1000);
     }
     function run() {
-        timer.renderTime();
         timer.runTime();
-
-
+        timer.renderTime();
     }
     function stopTimer() {
         clearInterval(timeVar);
     }
-
     function toggleTime() {
         if (timer.isRunning()) {
             stopTimer();
             timer.changeRun(false);
             controller.addTimeToActivity(this, timer.getTimeSeconds());
+            controller.addDayToModel();
+            controller.showData();
         }
         else {
             timer.reset();

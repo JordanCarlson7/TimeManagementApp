@@ -29,17 +29,23 @@ export default class TimeController {
     showActivities() {
         this.view.renderActivites(this.model.activityArray);
     }
-    showNewActivity() {
-        let activity =this.view.getNewActivity();
-        this.view.renderSingleActivity(activity);
+    showNewActivity(controller) {
+        let activity = this.view.getNewActivity();
+        //var model = this.model;
+        this.view.renderSingleActivity(activity, controller);
     }
     showData() {
         var activities = this.model.getActivities();
         var totalTime = this.model.getTotalTime();
         this.view.renderPieActualFull(activities,totalTime);
         var targetActivities = this.model.getActivities();
-        var targetTotalTime = 57600
+        var targetTotalTime = 57600; //length of a day excluding 8 hours of sleep
         this.view.renderPieTargetFull(targetActivities,targetTotalTime);
+    }
+    deleteActivityFromArray(activityName) {
+        this.model.deleteActivityFromArray(activityName);
+        this.view.deleteSingleActivity(activityName);
+        this.showData();
     }
     
 }

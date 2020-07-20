@@ -1,7 +1,20 @@
 
+:root {
+--background: #042a2bff;
+--primary: #5eb1bfff;
+--secondary: #cdedf6ff;
+--accent-inner: #ef7b45ff;
+--accent: #d84727ff;
+--pastel-green: #20bf55ff;
+--sapphire: #0b4f6cff;
+--process: #01baefff;
+--white: #fbfbffff;
+--silver: #757575ff;
+}
 
 body {
-    background-color: darkred;
+    background-color: var(--background);
+    color: var(--secondary);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,6 +25,7 @@ body {
     flex-direction: column;
     width: max-content;
     width: 90%;
+    margin: auto;
 }
 #activitiesList {
     display: flex;
@@ -23,7 +37,7 @@ body {
 li {
     display: flex;
     list-style-type: none;
-    border: solid 2px black;
+    border: solid 2px var(--accent);
     padding: 10px;
     margin: 10px;
     align-content: center;
@@ -37,17 +51,21 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: darksalmon;
+    background-color: var(--accent);
     border-radius: 10px;
     height: max-content;
     font-size: xx-large;
     padding: 10px;
+    margin: auto;
 }
 #pie {
     display: flex;
     flex-direction: row;
-    width:100%;
+    width:90%;
     height:auto;
+    align-content: space-around;
+    justify-content: space-around;
+    margin: auto;
 }
 
 .stats {
@@ -55,37 +73,88 @@ li {
     flex-direction: column;
     width: 100%;
     align-content: space-between;
+    margin: 10px;
     
 }
 .activityData {
-    display: flex;
-    flex-direction: row;
     width: auto;
+    height: 50px;
     padding: 10px;
     text-align: right;
+    align-content: right;
+    justify-content:right;    
+    border-right: var(--secondary) 2px solid; 
+    margin: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
 }
 
 input {
-    background-color: darksalmon;
+    background-color: var(--accent);
+    border-color: var(--accent-inner);
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
     font-size: xx-large;
 }
+.targetInput {
+    width: 50px;
+    height: 40px;
+    background-color: #00000077;
+    color:var(--accent-inner);
+    font-size: smaller;
+    margin: 2px;
+    padding: 0px;
+    float: left;
+}
+select {
+    width: 100px;
+    height: 40px;
+    background-color: #00000000;
+    border-style: none;
+    color:var(--background);
+    font-size: smaller;
+    margin: 2px;
+    padding: 0px;
+}
 button {
+    background-color: var(--primary);
+    color: var(--background);
     border-radius: 10px;
     margin: 10px;
     width: 90%;
     font-size: xx-large;
 }
+.smallDelete {
+    width: 120px;
+}
+
+.activityButton:hover {
+    background-color:#00000033;
+}
+
 #timer {
     display: block;
     font-size: xx-large;
+    width:90%;
+    text-align: center;
+    background-color:var(--secondary);
+    color: var(--accent);
+    border: var(--primary) solid 2px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10px;
+    
 }
-
-.work{background-color: grey;}
-.excersize{background-color: red;}
-.entertainment{background-color: yellow;}
-.service{background-color: sandybrown;}
-.personal{background-color: green;}
-.travel{background-color: ivory;}
+.work{background-color:var(--silver);}
+.excersize{background-color:var(--accent);}
+.entertainment{background-color:var(--process);}
+.service{background-color:var(--sapphire);}
+.personal{background-color:var(--pastel-green);}
+.travel{background-color:var(--white);}
+div > .work{background-image: linear-gradient(to right,var(--silver),var(--background));}
+div > .excersize{background-image: linear-gradient(to right,var(--accent),var(--background));}
+div > .entertainment{background-image: linear-gradient(to right,var(--process),var(--background));}
+div > .service{background-image: linear-gradient(to right,var(--sapphire),var(--background));}
+div > .personal{background-image: linear-gradient(to right,var(--pastel-green),var(--background));}
+div > .travel{background-image: linear-gradient(to right,var(--white),var(--background));}

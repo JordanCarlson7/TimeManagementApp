@@ -7,7 +7,7 @@ export default class Model {
         this.days = JSON.parse(localStorage.getItem('days')) || [];
         this.day = this.getCurrentDayFromDaysArray() || new Day();
     }
-    getDay() { 
+    getDay() {
         return this.day;
     }
     setDay(day) {
@@ -19,23 +19,50 @@ export default class Model {
     getTotalTime() {
         return this.day.totalTime;
     }
+
+    resetActivityTimers() {
+        this.activityArray.forEach(element => {
+            element.timer = 0;
+        });
+        this.day.totalTime = 0;
+    }
     /*add day to array of days in localstorage*/
     storeDayToLocalStorage() {
         if (!this.getCurrentDayFromDaysArray()) {
-            console.log("no days in array")
+            console.log("no current day in array")
             var customDate = new Day();
-            if(this.day == {}) {
-                
-            this.day = customDate;
+            if (this.day == {}) {
+                //clear timers of current activities
+                this.activityArray.forEach(element => {
+                    element.timer = 0;
+                });
+                //reset day to untimed activities
+                this.day = customDate;
+                this.day.activities = this.activityArray;
+                this.day.totalTime = 0;
             }
+            //add new day to local days
             this.days.push(this.day);
             localStorage.setItem('days', JSON.stringify(this.days));
         }
         else {
+
+             /**manually clear current day
+            this.day.totalTime = 0;
+            this.day.activities = this.activityArray;
+            this.activityArray.forEach(element => {
+                element.timer = 0;
+            });
+            this.days.totalTime = 0;
+            */
+
+            //replace existing day with this day (has been updated with timed activities)
             console.log("replacing day from array")
-        //replace current day in array using something like this
-        this.days[this.days.indexOf(this.getCurrentDayFromDaysArray())] = this.day;
-        localStorage.setItem('days', JSON.stringify(this.days));
+            this.days[this.days.indexOf(this.getCurrentDayFromDaysArray())] = this.day;
+            localStorage.setItem('days', JSON.stringify(this.days));
+            
+            
+            localStorage.setItem('activities', JSON.stringify(this.activityArray));
         }
     }
 
@@ -77,6 +104,7 @@ export default class Model {
         day.totalTime = totalTime;
         this.day = day;
         console.log("this.day now = ", this.day);
+
     }
 
 
@@ -90,11 +118,23 @@ export default class Model {
             return (day.date.year == new Date().getFullYear() && day.date.month == new Date().getMonth() + 1 && day.date.day == new Date().getDate());
         });
 
-        console.log("we found this day matching current day",this.currentDay);
+        console.log("we found this day matching current day", this.currentDay);
         return this.currentDay;
 
     }
-
+    
+    deleteActivityFromArray(activityName) {
+        var activityToDelete = this.activityArray.find(function(element) {
+            if (element.name == activityName){
+                return element;
+            }
+        });
+        console.log(activityToDelete);
+        this.activityArray.splice(this.activityArray.indexOf(activityToDelete), 1);
+        localStorage.setItem('activities', JSON.stringify(this.activityArray));
+        this.saveLocalDayWithCurrentActivities();
+        this.storeDayToLocalStorage();
+    }
     clearLocalStorage() {
         localStorage.removeItem('days');
         localStorage.removeItem('activities');
