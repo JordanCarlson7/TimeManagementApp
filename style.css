@@ -147,7 +147,17 @@ button {
 button:hover {
     background-color:#00000033;
 }
-
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: var(--background);
+    background-color: var(--secondary);
+    padding: 20px;
+    font-size: x-small;
+}
 #timer {
     display: block;
     font-size: xx-large;
